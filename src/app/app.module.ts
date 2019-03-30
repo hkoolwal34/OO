@@ -4,9 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
+import { PostComponentComponent } from './post-component/post-component.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PostComponentComponent],
   imports: [BrowserModule, HttpClientModule],
   providers: [ApiService],
   bootstrap: [AppComponent]
