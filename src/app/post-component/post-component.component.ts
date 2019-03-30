@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService, Post } from '../api.service';
 
 @Component({
   selector: 'app-post-component',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-component.component.css']
 })
 export class PostComponentComponent implements OnInit {
+  dataIsAvailable: boolean;
+  posts: Post[];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private apiService: ApiService) {
+    this.dataIsAvailable = false;
   }
 
+  ngOnInit() {
+    this.apiService.getPosts().subscribe(posts => {
+      this.posts = posts;
+      this.dataIsAvailable = true;
+    });
+  }
 }

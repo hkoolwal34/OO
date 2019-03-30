@@ -9,17 +9,9 @@ import { ApiService, Post } from './api.service';
 })
 export class AppComponent implements OnInit {
   title = 'Recruitment';
-  dataIsAvailable: boolean;
-  posts: Post[];
 
-  constructor(private apiService: ApiService) {
-    this.dataIsAvailable = false;
+  constructor() {
   }
 
-  ngOnInit() {
-    this.apiService.getPosts().subscribe(posts => {
-      this.posts = posts;
-      this.dataIsAvailable = true;
-    });
-  }
+	ngOnInit(){}
 }
