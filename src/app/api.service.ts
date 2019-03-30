@@ -10,7 +10,7 @@ export interface Post {
   author: string;
 }
 
-export interface Comments{
+export interface Comment{
 	id : number;
 	body: string;
 	postId : number
@@ -22,5 +22,9 @@ export class ApiService {
 
   getPosts() {
     return this.http.get<Post[]>(`${BASE_URL}/posts?author=${user}`);
+  }
+
+  getComments(postId : number){
+  	return this.http.get<Comment[]>(`${BASE_URL}/comments?postId=${postId}`);
   }
 }
